@@ -1,4 +1,4 @@
-const samples = '/static/js/samples.json'
+const samples = './static/js/samples.json'
 const data = d3.json(samples);
 
 let select = document.getElementById('selDataset');
