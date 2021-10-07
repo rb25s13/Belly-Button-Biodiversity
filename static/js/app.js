@@ -51,8 +51,8 @@ function optionChanged(sel) {
         let traceData = [trace];
           
         let layout = {
-            height: 450,
-            width: 420,
+            height: 500,
+            width: 580,
             title: `<b style='font-size:1.25em;'>Top Samples</b>`,
             margin: {
               l: 100,
@@ -86,8 +86,8 @@ function optionChanged(sel) {
           
         let layout1 = {
             showlegend: false,
-            // height: 600,
-            width: 600,
+            height: 600,
+            width: 800,
             title: `<b style='font-size:1.5em;'>Total Samples</b>`
         };
           
@@ -97,37 +97,37 @@ function optionChanged(sel) {
 
         if (wfreqVal == 0) {
           xvalue = 0.15,
-          yvalue = 0.15
+          yvalue = 0.22
         } else if (wfreqVal == 1) {
           xvalue = 0.16,
-          yvalue = 0.32
+          yvalue = 0.35
         } else if (wfreqVal == 2) {
-          xvalue = 0.28,
-          yvalue = 0.4
+          xvalue = 0.23,
+          yvalue = 0.47
         } else if (wfreqVal == 3) {
           xvalue = 0.33,
-          yvalue = 0.57
+          yvalue = 0.55
         } else if (wfreqVal == 4) {
           xvalue = 0.445,
           yvalue = 0.6
         } else if (wfreqVal == 5) {
-          xvalue = 0.55,
+          xvalue = 0.56,
           yvalue = 0.6
         } else if (wfreqVal == 6) {
           xvalue = 0.675,
-          yvalue = 0.55
+          yvalue = 0.56
         } else if (wfreqVal == 7) {
           xvalue = 0.75,
-          yvalue = 0.45
+          yvalue = 0.46
         } else if (wfreqVal == 8) {
           xvalue = 0.805,
-          yvalue = 0.315
+          yvalue = 0.345
         } else if (wfreqVal == 9) {
           xvalue = 0.81,
-          yvalue = 0.15
+          yvalue = 0.22
         } else {
           xvalue = 0.15,
-          yvalue = 0.15
+          yvalue = 0.22
         };
         
         let data2 = [
@@ -167,13 +167,13 @@ function optionChanged(sel) {
         let layout2 = {
           height: 550,
           width: 580,
-          xaxis: {range: [0, 1], showgrid: false, 'zeroline': false, 'visible': false},
-          yaxis: {range: [0, 1], showgrid: false, 'zeroline': false, 'visible': false},
+          xaxis: {range: [0, 1], showgrid: false, 'zeroline': false, 'visible': false, fixedrange: true},
+          yaxis: {range: [0, 1], showgrid: false, 'zeroline': false, 'visible': false, fixedrange: true},
           showlegend: false,
           annotations: [
             {
               ax: 0.5,
-              ay: 0.15,
+              ay: 0.22,
               axref: 'x',
               ayref: 'y',
               x: xvalue,
@@ -181,7 +181,10 @@ function optionChanged(sel) {
               xref: 'x',
               yref: 'y',
               showarrow: true,
-              arrowhead: 9,
+              arrowhead: 100,
+              arrowwidth: 3,
+              arrowhead: 3,
+              arrowsize: 1,
             }
           ]
         };
