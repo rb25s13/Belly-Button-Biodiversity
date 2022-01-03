@@ -13,6 +13,14 @@ data.then((a) => {
   }
 });
 
+function init() {
+  
+  optionChanged('940')
+  
+};
+  
+init();
+
 let selectM = d3.select('#sample-metadata');
 selectM.attr('class', 'card');
 
@@ -191,12 +199,8 @@ function optionChanged(sel) {
         Plotly.newPlot('gauge', data2, layout2, config);
     });
 }
-optionChanged();
-
-// function init() {
-  
 
 
-// };
 
-// init();
+// optionChanged();
+
