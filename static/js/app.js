@@ -35,9 +35,9 @@ function optionChanged(sel) {
         
         let mdata = ds.metadata[valueID];
         
-        let labelArray = [];
+        let labelArrayBar = [];
         for (let q = 0; q < samples.length; q++) {
-            labelArray.push(`OTU ${sampleIDs[q]} `)
+            labelArrayBar.push(`OTU ${sampleIDs[q]} `)
         }
 
         let container = selectM.append('div').attr('class', 'mdata-card');;
@@ -46,9 +46,9 @@ function optionChanged(sel) {
         }
         let config = {responsive: true}
 
-        let trace = {
+        let traceBar = {
             x: sortedSamples,
-            y: labelArray.reverse(),
+            y: labelArrayBar.reverse(),
             type: 'bar',
             orientation: 'h',
             marker: {
@@ -56,9 +56,9 @@ function optionChanged(sel) {
               }
         };
           
-        let traceData = [trace];
+        let traceDataBar = [traceBar];
           
-        let layout = {
+        let layoutBar = {
             height: 500,
             width: 580,
             title: `<b style='font-size:1.25em;'>Top Samples</b>`,
@@ -70,18 +70,18 @@ function optionChanged(sel) {
             }
         };
           
-        Plotly.newPlot('bar', traceData, layout, config);
+        Plotly.newPlot('bar', traceDataBar, layoutBar, config);
 
 
-        let labelArray1 = [];
+        let labelArrayBubble = [];
         for (let q = 0; q < samples.length; q++) {
-            labelArray1.push(`OTU ${ds.samples[valueID].otu_ids[q]} `)
+            labelArrayBubble.push(`OTU ${ds.samples[valueID].otu_ids[q]} `)
         }
 
-        let trace1 = {
+        let traceBubble = {
             x: ds.samples[valueID].otu_ids,
             y: ds.samples[valueID].sample_values,
-            text: labelArray1,
+            text: labelArrayBubble,
             mode: 'markers',
             marker: {
               color: ds.samples[valueID].otu_ids,
@@ -90,16 +90,16 @@ function optionChanged(sel) {
             orientation: 'h'
           };
           
-        let traceData1 = [trace1];
+        let traceDataBubble = [traceBubble];
           
-        let layout1 = {
+        let layoutBubble = {
             showlegend: false,
             height: 600,
             width: 800,
             title: `<b style='font-size:1.5em;'>Total Samples</b>`
         };
           
-        Plotly.newPlot('bubble', traceData1, layout1, config);
+        Plotly.newPlot('bubble', traceDataBubble, layoutBubble, config);
 
         let wfreqVal = ds.metadata[valueID].wfreq;
 
@@ -138,7 +138,7 @@ function optionChanged(sel) {
           yvalue = 0.22
         };
         
-        let data2 = [
+        let dataGauge = [
             {
                 mode: 'gauge',
                 type: 'indicator',
@@ -172,7 +172,7 @@ function optionChanged(sel) {
             }
         ]
         
-        let layout2 = {
+        let layoutGauge = {
           height: 550,
           width: 580,
           xaxis: {range: [0, 1], showgrid: false, 'zeroline': false, 'visible': false, fixedrange: true},
@@ -196,11 +196,6 @@ function optionChanged(sel) {
             }
           ]
         };
-        Plotly.newPlot('gauge', data2, layout2, config);
+        Plotly.newPlot('gauge', dataGauge, layoutGauge, config);
     });
 }
-
-
-
-// optionChanged();
-
